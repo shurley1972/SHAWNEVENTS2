@@ -1,0 +1,1 @@
+define([], function( ) { return  JSON.stringify({"components":[],"timestamp":"Fri Sep 23 2016 13:02:12 GMT-0500 (Central Daylight Time)"});});
