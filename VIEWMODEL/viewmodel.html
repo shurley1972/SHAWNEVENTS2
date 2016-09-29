@@ -70,6 +70,242 @@
             <div class="row-spacing"></div>
         </div>
     </div>
+    <div class="ms-Grid-row" style="display: block;">
+        <div class="ms-u-lg12 ms-u-md12 ms-u-sm12 ms-Grid-col">
+            <component-textboxcustom id="57a6ef81-b2ab-ed8b-6905-5565b0ea6fcf" params="InternalName: 'mwp_EventVenue', width: '400px', maxlength: '255', required: 'true', label: 'Event Venue', infotip: 'Enter the location where the event will take place, e.g. ABC Conference Center, XYZ Restaurant.', placeholder: '' "></component-textboxcustom>
+            <div class="row-spacing"></div>
+        </div>
+    </div>
+    <div class="ms-Grid-row" style="display: block;">
+        <div class="ms-u-lg12 ms-u-md12 ms-u-sm12 ms-Grid-col">
+            <div class="table-Cell" style="padding-right: 35px;">
+                <component-textboxcustom id="3b6c9859-4d3c-dee4-c0d3-a648f1a6217b" params="InternalName: 'mwp_EventCity', width: '150px', maxlength: '50', required: 'true', label: 'Event City', infotip: '', placeholder: '' "></component-textboxcustom>
+            </div>
+            <div class="table-Cell" style="padding-left: 15px;"> <span>
+					<label class="ms-Label">Event State</label> 
+					<select class="validate" data-bind="value: mwp_EventState" data-parsley-required="true">
+						<option value="">Select</option>
+						<option value="Alabama">Alabama</option>
+						<option value="Alaska">Alaska</option>
+						<option value="Arizona">Arizona</option>
+						<option value="Arkansas">Arkansas</option>
+						<option value="California">California</option>
+						<option value="Colorado">Colorado</option>
+						<option value="Connecticut">Connecticut</option>
+						<option value="Delaware">Delaware</option>
+						<option value="Florida">Florida</option>
+						<option value="Georgia">Georgia</option>
+						<option value="Hawaii">Hawaii</option>
+						<option value="Idaho">Idaho</option>
+						<option value="Illinois">Illinois</option>
+						<option value="Indiana">Indiana</option>
+						<option value="Iowa">Iowa</option>
+						<option value="Kansas">Kansas</option>
+						<option value="Kentucky">Kentucky</option>
+						<option value="Louisiana">Louisiana</option>
+						<option value="Maine">Maine</option>
+						<option value="Maryland">Maryland</option>
+						<option value="Massachusetts">Massachusetts</option>
+						<option value="Michigan">Michigan</option>
+						<option value="Minnesota">Minnesota</option>
+						<option value="Mississippi">Mississippi</option>
+						<option value="Missouri">Missouri</option>
+						<option value="Montana">Montana</option>
+						<option value="Nebraska">Nebraska</option>
+						<option value="Nevada">Nevada</option>
+						<option value="New Hampshire">New Hampshire</option>
+						<option value="New Jersey">New Jersey</option>
+						<option value="New Mexico">New Mexico</option>
+						<option value="New York">New York</option>
+						<option value="North Carolina">North Carolina</option>
+						<option value="North Dakota">North Dakota</option>
+						<option value="Ohio">Ohio</option>
+						<option value="Oklahoma">Oklahoma</option>
+						<option value="Oregon">Oregon</option>
+						<option value="Pennsylvania">Pennsylvania</option>
+						<option value="Rhode Island">Rhode Island</option>
+						<option value="South Carolina">South Carolina</option>
+						<option value="South Dakota">South Dakota</option>
+						<option value="Tennessee">Tennessee</option>
+						<option value="Texas">Texas</option>
+						<option value="Utah">Utah</option>
+						<option value="Vermont">Vermont</option>
+						<option value="Virginia">Virginia</option>
+						<option value="Washington">Washington</option>
+						<option value="West Virginia">West Virginia</option>
+						<option value="Wisconsin">Wisconsin</option>
+						<option value="Wyoming">Wyoming</option>
+					</select> 
+				</span> </div>
+            <div class="row-spacing"></div>
+        </div>
+    </div>
+    <div class="ms-Grid-row" style="display: block;">
+        <div class="ms-u-lg12 ms-u-md12 ms-u-sm12 ms-Grid-col">
+            <label class="ms-Label">Description and Purpose of Event</label>
+            <textarea class="validate" style="width: 600px; height: 50%;" data-bind="value: mwp_DescriptionAndPurposeOfEvent" data-parsley-required="true"></textarea>
+            <div class="row-spacing"></div>
+        </div>
+    </div>
+    <div class="ms-Grid-row" style="display: block;">
+        <div class="ms-u-lg12 ms-u-md12 ms-u-sm12 ms-Grid-col">
+            <div class="ms-ChoiceFieldGroup"> <span class="ms-Label">Is the event open to the community? <span class="tooltip"><span class="information table-Cell" style="width: 20px;">&nbsp;</span><span class="tooltiptext">An event is open to the community if the hosting organization invites attendees other than its own employees.</span></span>
+                </span>
+                <div class="table-Cell validateCommunityBox validate" style="padding: 5px; border-radius: 3px;">
+                    <div class="ms-ChoiceField validate" style="float: left;">
+                        <input name="eventopen" class="ms-ChoiceField-input" id="event-yes" type="radio" value="Yes" data-bind="checked: mwp_IsTheEventOpenToTheCommunity" data-parsley-required="true" data-parsley-errors-container=".validateCommunityMsg" data-parsley-class-handler=".validateCommunityBox">
+                        <label class="ms-ChoiceField-field" for="event-yes"><span class="ms-Label">Yes</span> </label>
+                    </div>
+                    <div class="ms-ChoiceField validate" style="padding-left: 30px; float: left;">
+                        <input name="eventopen" class="ms-ChoiceField-input" id="event-no" type="radio" value="No" data-bind="checked: mwp_IsTheEventOpenToTheCommunity" data-parsley-required="true">
+                        <label class="ms-ChoiceField-field" for="event-no"><span class="ms-Label">No</span> </label>
+                    </div>
+                </div>
+                <div class="validateCommunityMsg"></div>
+            </div>
+            <div class="row-spacing"></div>
+        </div>
+    </div>
+    <div class="ms-Grid-row" style="display: block;">
+        <div class="ms-u-lg12 ms-u-md12 ms-u-sm12 ms-Grid-col">
+            <div class="table-Cell" style="padding-right: 35px;">
+                <component-textboxcustom id="59f00c96-89d9-9b8e-4535-c05bdc4a97fb" params="InternalName: 'mwp_ExpectedNumberofAttendees', width: '110px', maxlength: '7', required: 'true', label: 'Expected Number of Attendees', datatype: 'number', placeholder: '' "></component-textboxcustom>
+                <div class="row-spacing"></div>
+                <component-textboxcustom id="67a06dfc-edbf-372b-6c31-45db2bec24ed" params="InternalName: 'mwp_ExpectedTypeofAttendees', width: '300px', maxlength: '255', required: 'true', label: 'Expected Type of Attendees', infotip: 'List the expected type of attendees, e.g. nurses, purchasing directors, administrators.', placeholder: '' "></component-textboxcustom>
+            </div>
+            <div class="row-spacing"></div>
+        </div>
+    </div>
+    <div class="ms-Grid-row" style="display: block;">
+        <div class="ms-u-lg12 ms-u-md12 ms-u-sm12 ms-Grid-col"> <span class="ms-Label"><span>Attach Backup Documentation</span>&nbsp;&nbsp;<span class="tooltip"><span class="information table-Cell" style="width: 20px;">&nbsp;</span><span class="tooltiptext">Attach any and all relevant documentation, including brochures, agendas, sponsor standards, etc. Multiple files should be uploaded as a single zip file.  <b>DO NOT</b> use following special characters in any file names as they are <u>invalid</u> (an error will occur if you use any of them): \ / : * ? " &lt; &gt; | # { } % ~ &amp; </span></span>
+            </span>
+            <component-attachmentcustom id="e254a7da-8ad1-a053-0175-cda89ec207a2" params="prefix: 'main', required: 'true' "></component-attachmentcustom>
+            <div class="row-spacing"></div>
+        </div>
+    </div>
+    <div class="ms-Grid-row" style="display: block;">
+        <div class="ms-u-lg12 ms-u-md12 ms-u-sm12 ms-Grid-col">
+            <div class="Section"> Participation Requested </div>
+        </div>
+    </div>
+    <div class="ms-Grid-row" style="display: block;">
+        <div class="ms-u-lg12 ms-u-md12 ms-u-sm12 ms-Grid-col">
+            <div class="ms-ChoiceFieldGroup">
+                <label class="ms-Label">Vendor Booth</label>
+                <div class="table-Cell validateVendorBox validate" style="padding: 5px; border-radius: 3px;">
+                    <div class="ms-ChoiceField validate" style="float: left;">
+                        <input name="vendorBooth" class="ms-ChoiceField-input" id="vendor-yes" type="radio" value="Yes" data-bind="checked: mwp_VendorBooth" data-parsley-required="true" data-parsley-errors-container=".validateVendorMsg" data-parsley-class-handler=".validateVendorBox">
+                        <label class="ms-ChoiceField-field" for="vendor-yes"><span class="ms-Label">Yes</span> </label>
+                    </div>
+                    <div class="ms-ChoiceField validate" style="padding-left: 30px; float: left;">
+                        <input name="vendorBooth" class="ms-ChoiceField-input" id="vendor-no" type="radio" value="No" data-bind="checked: mwp_VendorBooth" data-parsley-required="true">
+                        <label class="ms-ChoiceField-field" for="vendor-no"><span class="ms-Label">No</span> </label>
+                    </div>
+                </div>
+                <div class="validateVendorMsg"></div>
+            </div>
+            <div class="row-spacing"></div>
+        </div>
+    </div>
+    <div class="ms-Grid-row" style="display: none;" data-bind="style: { display: mwp_VendorBoothShow }">
+        <div class="ms-u-lg12 ms-u-md12 ms-u-sm12 ms-Grid-col">
+            <div class="table-Cell" style="padding-right: 35px;">
+                <component-textboxcustom id="7c0cb7ba-7484-57ee-4d4d-9678f1cb78b9" params="InternalName: 'mwp_PayeeTaxId', width: '110px', maxlength: '9', required: mwp_VendorBoothFeeRequired, label: 'Payee Tax ID', infotip: 'Tax ID numbers are available on an organization’s W-9.', datatype: 'number', placeholder: '' "></component-textboxcustom>
+                <div class="row-spacing"></div>
+                <component-textboxcustom id="ff69285e-ddfa-0fa1-1bcf-3fb924bb24c2" params="InternalName: 'mwp_VendorBoothFee', width: '110px', maxlength: '9', required: mwp_VendorBoothFeeRequired, label: 'Booth Fee $', datatype: 'number', placeholder: '$' "></component-textboxcustom>
+            </div>
+            <div class="row-spacing"></div>
+        </div>
+    </div>
+    <div class="ms-Grid-row" style="display: none;" data-bind="style: { display: mwp_VendorBoothShow }">
+        <div class="ms-u-lg12 ms-u-md12 ms-u-sm12 ms-Grid-col"> <span class="ms-Label">Attach Certification <span class="tooltip"><span class="information table-Cell" style="width: 20px;">&nbsp;</span><span class="tooltiptext">Upload signed HCP certification. If you have any questions regarding the certification, save your request and contact the OEC directly.  <b>DO NOT</b> use following special characters in any file names as they are <u>invalid</u> (an error will occur if you use any of them): \ / : * ? " &lt; &gt; | # { } % ~ &amp; </span></span>
+            </span>
+            <component-attachmentcustom id="239d9781-aafa-2b29-33e7-5444d7b1beb4" params="prefix: 'cert', required: SetAttachmentRequiredCert "></component-attachmentcustom>
+            <div class="row-spacing"></div>
+        </div>
+    </div>
+    <div class="ms-Grid-row" style="display: block;">
+        <div class="ms-u-lg12 ms-u-md12 ms-u-sm12 ms-Grid-col" style="display: block;">
+            <div class="ms-ChoiceFieldGroup">
+                <label class="ms-Label">Inservice</label>
+                <div class="table-Cell validateInserviceBox validate" style="padding: 5px; border-radius: 3px;">
+                    <div class="ms-ChoiceField validate" style="float: left;">
+                        <input name="Inservice" class="ms-ChoiceField-input" id="Inservice-yes" type="radio" value="Yes" data-bind="checked: mwp_InService" data-parsley-required="true" data-parsley-errors-container=".validateInserviceMsg" data-parsley-class-handler=".validateInserviceBox">
+                        <label class="ms-ChoiceField-field" for="Inservice-yes"><span class="ms-Label">Yes</span> </label>
+                    </div>
+                    <div class="ms-ChoiceField validate" style="padding-left: 30px; float: left;">
+                        <input name="Inservice" class="ms-ChoiceField-input" id="Inservice-no" type="radio" value="No" data-bind="checked: mwp_InService" data-parsley-required="true">
+                        <label class="ms-ChoiceField-field" for="Inservice-no"><span class="ms-Label">No</span> </label>
+                    </div>
+                </div>
+                <div class="validateInserviceMsg"></div>
+            </div>
+            <div class="row-spacing"></div>
+        </div>
+    </div>
+    <div class="ms-Grid-row" style="display: none;" data-bind="style: { display: mwp_InServiceShow }">
+        <div class="ms-u-lg12 ms-u-md12 ms-u-sm12 ms-Grid-col">
+            <component-textboxcustom id="e8ccf05f-73a9-ea08-9702-dcb32711ef4d" params="InternalName: 'mwp_Topic', width: '600px', maxlength: '255', required: mwp_TopicRequired, label: 'Topic', placeholder: '' "></component-textboxcustom>
+            <div class="row-spacing"></div>
+        </div>
+    </div>
+    <div class="ms-Grid-row" style="display: none;" data-bind="style: { display: mwp_InServiceShow }">
+        <div class="ms-u-lg12 ms-u-md12 ms-u-sm12 ms-Grid-col">
+            <component-textboxcustom id="c31fe995-ae35-503b-df99-338283212922" params="InternalName: 'mwp_SpeakerName', width: '600px', maxlength: '255', required: mwp_SpeakerRequired, label: 'Planned Speaker', infotip: 'Provide the name of the planned speaker(s).', placeholder: '' "></component-textboxcustom>
+            <div class="row-spacing"></div>
+        </div>
+    </div>
+    <div class="ms-Grid-row" style="display: block;">
+        <div class="ms-u-lg12 ms-u-md12 ms-u-sm12 ms-Grid-col">
+            <div class="ms-ChoiceFieldGroup">
+                <label class="ms-Label">Other</label>
+                <div class="table-Cell validateOtherParticipationBox validate" style="padding: 5px; border-radius: 3px;">
+                    <div class="ms-ChoiceField validate" style="float: left;">
+                        <input name="OtherParticipation" class="ms-ChoiceField-input" id="OtherParticipation-yes" type="radio" value="Yes" data-bind="checked: mwp_OtherParticipation" data-parsley-required="true" data-parsley-errors-container=".validateOtherParticipationMsg"
+                        data-parsley-class-handler=".validateOtherParticipationBox">
+                        <label class="ms-ChoiceField-field" for="OtherParticipation-yes"><span class="ms-Label">Yes</span> </label>
+                    </div>
+                    <div class="ms-ChoiceField validate" style="padding-left: 30px; float: left;">
+                        <input name="OtherParticipation" class="ms-ChoiceField-input" id="OtherParticipation-no" type="radio" value="No" data-bind="checked: mwp_OtherParticipation" data-parsley-required="true">
+                        <label class="ms-ChoiceField-field" for="OtherParticipation-no"><span class="ms-Label">No</span> </label>
+                    </div>
+                </div>
+                <div class="validateOtherParticipationMsg"></div>
+            </div>
+            <div class="row-spacing"></div>
+        </div>
+    </div>
+    <div class="ms-Grid-row" style="display: none;" data-bind="style: { display: mwp_OtherParticipationShow }">
+        <div class="ms-u-lg12 ms-u-md12 ms-u-sm12 ms-Grid-col">
+            <component-textboxcustom id="092ff699-487a-20c1-eb7f-70c644fe517b" params="InternalName: 'mwp_DescribeOther', width: '600px', maxlength: '255', required: mwp_DescribeOtherRequired, label: 'Describe', infotip: 'Provide a detailed description of additional participation requested.', placeholder: '' "></component-textboxcustom>
+            <div class="row-spacing"></div>
+        </div>
+    </div>
+    <div class="ms-Grid-row" style="display: block;">
+        <div class="ms-u-lg12 ms-u-md12 ms-u-sm12 ms-Grid-col">
+            <div class="Section"> Certification </div>
+        </div>
+    </div>
+    <div class="ms-Grid-row" style="display: block;">
+        <div class="ms-u-lg12 ms-u-md12 ms-u-sm12 ms-Grid-col">
+            <component-textboxcustom id="d8b87b87-da2a-5c5f-f1bf-623ac361c5a3" params="InternalName: 'mwp_OtherValue', width: '600px', maxlength: '255', required: 'false', label: 'Other relevant facts or circumstances', placeholder: '' "></component-textboxcustom>
+            <div class="row-spacing"></div>
+        </div>
+    </div>
+    <div class="ms-Grid-row" style="display: block;">
+        <div class="ms-u-lg12 ms-u-md12 ms-u-sm12 ms-Grid-col">
+            <div class="validateCheck validate" id="validate" style="padding: 5px; border-radius: 3px;">
+                <div class="ms-ChoiceField">
+                    <input class="ms-ChoiceField-input" id="demo-checkbox-unselected" required="" type="checkbox" data-bind="checked: mwp_TermsAndConditions" data-parsley-errors-container=".validateCheck" data-parsley-class-handler=".validateCheck" data-parsley-error-message="Terms and Conditions must be accepted.">
+                    <label class="ms-ChoiceField-field" for="demo-checkbox-unselected"> <span class="ms-Label" style="width: 95%;">
+							By submitting this proposal to participate in a healthcare provider hosted event, I certify that I am familiar with the Medline policy on interactions with healthcare providers. This proposal complies with Medline policy and is not made to induce the purchase of items or services from Medline or as a reward for purchasing items or services from Medline.
+						</span> </label>
+                </div>
+            </div>
+            <div class="row-spacing"></div>
+        </div>
+    </div>	
+	
 	
     <div class="ms-Grid-row" style="display: block;">
         <div class="ms-u-lg12 ms-u-md12 ms-u-sm12 ms-Grid-col">
@@ -86,6 +322,13 @@
             <component-observable2 id="befbab21-ed11-ff16-5af2-c80af5f7ff71" params="'InternalName':'mwp_OneDayEvent'" class=""></component-observable2>
 			<component-observable2 id="9afff07d-fe41-eb50-8b5f-8aae7dd10c42" params="InternalName: 'mwp_EventStartDate' "></component-observable2>
 			<component-observable2 id="1ecbeba2-4b84-f7b7-e6b3-3830b8efcf3f" params="InternalName: 'mwp_EventEndDate' "></component-observable2>
+			<component-observable2 id="997032c3-a928-3058-a27f-a5c6bda707ac" params="InternalName: 'mwp_EventState' "></component-observable2>
+			<component-observable2 id="a9b0a26c-6180-8876-ee08-b6a9be7edd9b" params="InternalName: 'mwp_DescriptionAndPurposeOfEvent' "></component-observable2>
+			<component-observable2 id="4627f181-570a-21a1-da78-7f7e5755b8ac" params="InternalName: 'mwp_IsTheEventOpenToTheCommunity' "></component-observable2>
+			<component-observable2 id="7612534a-6d32-7e77-d155-86e5b9fc9c7d" params="InternalName: 'mwp_VendorBooth' "></component-observable2>
+			<component-observable2 id="ec3fb3aa-ba5b-e663-4176-9cacbd3557f9" params="InternalName: 'mwp_InService' "></component-observable2>
+			<component-observable2 id="a1fd80cc-ce0d-709a-4463-5971c1bc91b4" params="InternalName: 'mwp_OtherParticipation' "></component-observable2>
+			<component-observable2 id="c184b7bf-c78a-bba4-3a37-b61bda9cc3a6" params="InternalName: 'mwp_TermsAndConditions' "></component-observable2>
         </div>
     </div>
 </div>
