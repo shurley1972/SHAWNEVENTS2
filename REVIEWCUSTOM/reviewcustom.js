@@ -54,6 +54,8 @@ define(['text!reviewcustom.html'], function( htmlString) {
 
 		
 		//this.SetOneDayEventDefault = ko.computed(function(){if(this.WorkflowSteps != undefined){alert(this.WorkflowSteps())}}, this);		
+		if (this.WorkflowSteps() == "")
+		{
 			var workflowStep = []
 			var newWorkflowStep = {}
 			newWorkflowStep.ID = this.ID
@@ -71,7 +73,7 @@ define(['text!reviewcustom.html'], function( htmlString) {
 			alert(workflowStepStr);
 			this.WorkflowSteps(workflowStepStr);
 						//alert('SAVE')
-
+		}
 
 
 
