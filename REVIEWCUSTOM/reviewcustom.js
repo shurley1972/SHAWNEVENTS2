@@ -52,18 +52,19 @@ define(['text!reviewcustom.html'], function( htmlString) {
 		// Sets reviewer outcome Approve/Reject field
 		this.WorkflowSteps = this.$column("mwp_ApprovalWorkflow");	
 
-		//this.SetOneDayEventDefault = ko.computed(function(){if(this.WorkflowSteps != undefined){alert(this.WorkflowSteps())}}, this);	
-		//this.WorkflowSteps("a")		
-
-		//alert(this.WorkflowSteps());
-		this.WorkflowSteps.subscribe(function(newValue) {     
+		//this.SetOneDayEventDefault = ko.computed(function(){if(this.WorkflowSteps != undefined){alert(this.WorkflowSteps())}}, this);		
+		
+		this.WorkflowSteps.subscribe(function(newValue) {  
+			alert("1");
 			var workflowStep = $.parseJSON(newValue)
+			alert(newValue);
 			if (workflowStep == undefined) workflowStep = []
+			alert("3");
 			for (var i=0; i<workflowStep.length; i++)
 			{
 				if (workflowStep[i].ID == this.ID)
 				{
-					alert('Step has already been added.  Do Nothing');
+					//alert('Step has already been added.  Do Nothing');
 					return;
 					//workflowStep[i].ReviewerOutcome = "Approved";
 					//workflowStep[i].ReviewerComments = this.commentsValue();
@@ -93,7 +94,7 @@ define(['text!reviewcustom.html'], function( htmlString) {
 
 		},this);
 
-				if(this.WorkflowSteps()== ""){this.WorkflowSteps("none");}
+		
 		// Hides Approve/Reject if ReviewerOutcome has a value.  Workflow will reset the field.
 		this._formReadOnly = ko.observable(true)
 		this.stepName = ko.observable((params) ? params.StepName : '');
