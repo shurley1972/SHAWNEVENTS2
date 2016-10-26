@@ -15,6 +15,7 @@ define(['text!reviewcustom.html'], function( htmlString) {
 		this.NextID = (params) ? params.NextID : '';
 		this.StepName = (params) ? params.StepName : '';	
 		this.ApproverType = (params) ? params.ApproverType : '';
+		this.ApproverAccountID = (params) ? params.ApproverAccountID : '';		
 		this.FirstStep = (params) ? params.FirstStep : '';		
 		/**
 		 * TITLE
@@ -61,7 +62,8 @@ define(['text!reviewcustom.html'], function( htmlString) {
 			newWorkflowStep.ID = this.ID
 			newWorkflowStep.NextID = this.NextID
 			newWorkflowStep.StepName = this.StepName	
-			newWorkflowStep.ApproverType = this.ApproverType	
+			newWorkflowStep.ApproverType = this.ApproverType
+			newWorkflowStep.ApproverAccountID = this.ApproverAccountID				
 			newWorkflowStep.FirstStep = this.FirstStep	
 			newWorkflowStep.Current = false
 			newWorkflowStep.Processed = false	
@@ -70,12 +72,10 @@ define(['text!reviewcustom.html'], function( htmlString) {
 			workflowStep.push(newWorkflowStep)
 			
 			var workflowStepStr = JSON.stringify(workflowStep)
-			alert(workflowStepStr);
+			//alert(workflowStepStr);
 			this.WorkflowSteps(workflowStepStr);
-						//alert('SAVE')
+
 		}
-
-
 
 		this.WorkflowSteps.subscribe(function(newValue) {  
 			var workflowStep = $.parseJSON(newValue)
@@ -86,16 +86,15 @@ define(['text!reviewcustom.html'], function( htmlString) {
 				{
 					//alert('Step has already been added.  Do Nothing');
 					return;
-					//workflowStep[i].ReviewerOutcome = "Approved";
-					//workflowStep[i].ReviewerComments = this.commentsValue();
 				}
 			}
 			var newWorkflowStep = {}
 			newWorkflowStep.ID = this.ID
 			newWorkflowStep.NextID = this.NextID
 			newWorkflowStep.StepName = this.StepName	
-			newWorkflowStep.ApproverType = this.ApproverType	
-			newWorkflowStep.FirstStep = this.FirstStep	
+			newWorkflowStep.ApproverType = this.ApproverType
+			newWorkflowStep.ApproverAccountID = this.ApproverAccountID				
+			newWorkflowStep.FirstStep = this.FirstStep			
 			newWorkflowStep.Current = false
 			newWorkflowStep.Processed = false	
 			newWorkflowStep.ReviewerOutcome = ""
@@ -103,17 +102,10 @@ define(['text!reviewcustom.html'], function( htmlString) {
 			workflowStep.push(newWorkflowStep)
 			
 			var workflowStepStr = JSON.stringify(workflowStep)
-			alert(workflowStepStr);
+			//alert(workflowStepStr);
 			this.WorkflowSteps(workflowStepStr);
-						alert('SAVED!!2')
-			//this.$form._formSave();
-
-
-					
-
 		},this);
 
-		
 		// Hides Approve/Reject if ReviewerOutcome has a value.  Workflow will reset the field.
 		this._formReadOnly = ko.observable(true)
 		this.stepName = ko.observable((params) ? params.StepName : '');
