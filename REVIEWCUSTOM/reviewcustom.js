@@ -52,14 +52,32 @@ define(['text!reviewcustom.html'], function( htmlString) {
 		// Sets reviewer outcome Approve/Reject field
 		this.WorkflowSteps = this.$column("mwp_ApprovalWorkflow");	
 
-		//this.SetOneDayEventDefault = ko.computed(function(){if(this.WorkflowSteps != undefined){alert(this.WorkflowSteps())}}, this);		
 		
+		//this.SetOneDayEventDefault = ko.computed(function(){if(this.WorkflowSteps != undefined){alert(this.WorkflowSteps())}}, this);		
+			var workflowStep = []
+			var newWorkflowStep = {}
+			newWorkflowStep.ID = this.ID
+			newWorkflowStep.NextID = this.NextID
+			newWorkflowStep.StepName = this.StepName	
+			newWorkflowStep.ApproverType = this.ApproverType	
+			newWorkflowStep.FirstStep = this.FirstStep	
+			newWorkflowStep.Current = false
+			newWorkflowStep.Processed = false	
+			newWorkflowStep.ReviewerOutcome = ""
+			newWorkflowStep.ReviewerComments = ""		
+			workflowStep.push(newWorkflowStep)
+			
+			var workflowStepStr = JSON.stringify(workflowStep)
+			alert(workflowStepStr);
+			this.WorkflowSteps(workflowStepStr);
+						//alert('SAVE')
+
+
+
+
 		this.WorkflowSteps.subscribe(function(newValue) {  
-			alert("1");
 			var workflowStep = $.parseJSON(newValue)
-			alert(newValue);
 			if (workflowStep == undefined) workflowStep = []
-			alert("3");
 			for (var i=0; i<workflowStep.length; i++)
 			{
 				if (workflowStep[i].ID == this.ID)
@@ -80,7 +98,6 @@ define(['text!reviewcustom.html'], function( htmlString) {
 			newWorkflowStep.Processed = false	
 			newWorkflowStep.ReviewerOutcome = ""
 			newWorkflowStep.ReviewerComments = ""		
-			debugger;
 			workflowStep.push(newWorkflowStep)
 			
 			var workflowStepStr = JSON.stringify(workflowStep)
