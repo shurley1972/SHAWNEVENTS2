@@ -52,8 +52,10 @@ define(['text!reviewcustom.html'], function( htmlString) {
 		// Sets reviewer outcome Approve/Reject field
 		this.WorkflowSteps = this.$column("mwp_ApprovalWorkflow");	
 
-		//this.SetOneDayEventDefault = ko.computed(function(){if(this.WorkflowSteps != undefined){alert(this.WorkflowSteps())}}, this);		
-		if(this.WorkflowSteps== null){alert('dddddddddd');}
+		//this.SetOneDayEventDefault = ko.computed(function(){if(this.WorkflowSteps != undefined){alert(this.WorkflowSteps())}}, this);	
+		//this.WorkflowSteps("a")		
+		if(this.WorkflowSteps()== ""){alert('dddddddddd');}
+		//alert(this.WorkflowSteps());
 		this.WorkflowSteps.subscribe(function(newValue) {     
 			var workflowStep = $.parseJSON(newValue)
 			if (workflowStep == undefined) workflowStep = []
