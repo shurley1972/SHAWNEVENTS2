@@ -54,7 +54,7 @@ define(['text!reviewcustom.html'], function( htmlString) {
 
 		//this.SetOneDayEventDefault = ko.computed(function(){if(this.WorkflowSteps != undefined){alert(this.WorkflowSteps())}}, this);	
 		//this.WorkflowSteps("a")		
-		if(this.WorkflowSteps()== ""){this.WorkflowSteps("none");}
+
 		//alert(this.WorkflowSteps());
 		this.WorkflowSteps.subscribe(function(newValue) {     
 			var workflowStep = $.parseJSON(newValue)
@@ -93,7 +93,7 @@ define(['text!reviewcustom.html'], function( htmlString) {
 
 		},this);
 
-		
+				if(this.WorkflowSteps()== ""){this.WorkflowSteps("none");}
 		// Hides Approve/Reject if ReviewerOutcome has a value.  Workflow will reset the field.
 		this._formReadOnly = ko.observable(true)
 		this.stepName = ko.observable((params) ? params.StepName : '');
