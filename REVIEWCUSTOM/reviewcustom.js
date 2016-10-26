@@ -56,8 +56,10 @@ define(['text!reviewcustom.html'], function( htmlString) {
 		
 		this.WorkflowSteps.subscribe(function(newValue) {  
 			alert('One');
+			debugger;
 			var workflowStep = $.parseJSON(newValue)
 			if (workflowStep == undefined) workflowStep = []
+						debugger;
 			for (var i=0; i<workflowStep.length; i++)
 			{
 				if (workflowStep[i].ID == this.ID)
@@ -69,6 +71,7 @@ define(['text!reviewcustom.html'], function( htmlString) {
 					//workflowStep[i].ReviewerComments = this.commentsValue();
 				}
 			}
+						debugger;
 						alert('three');
 			var newWorkflowStep = {}
 			newWorkflowStep.ID = this.ID
