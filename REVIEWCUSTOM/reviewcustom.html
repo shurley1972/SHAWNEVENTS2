@@ -1,7 +1,27 @@
-<div data-bind="css: {'ge-designmode': $formDesignMode}">
-	<div class="ms-TextField" >
-		<label class="ms-Label" data-bind="text: title"></label>
-		<input class="ms-TextField-field validate" type="text" data-parsley-type="alphanum" data-parsley-required="true" data-bind="value: value, enable: enableValue" />
-		<span class="ms-TextField-description" data-bind="text: description"></span>
-	</div>
+<div data-bind="visible: _formEnabled,css: {'ge-designmode': $formDesignMode}">
+    <div class="Section" style="background-color:#FEC009" data-bind="text: stepName"></div>
+    <div style="padding-bottom: 8px;"></div>
+	<label class="ms-Label">Comments</label>
+    <textarea class="validate" style="width: 600px; height: 70px;" data-bind="value: commentsValue, enable: _formReadOnly"></textarea>
+	<div class="custom-error-text" id="comments-Req-Msg" style="color:Red;display:none;">You must enter a rejection reason in the Comments field.</div>
+    <div style="padding-bottom: 26px;"></div>
+	<div class="ms-u-lg12 ms-u-md12 ms-u-sm12 ms-Grid-col">
+		<component-messagebox id="045049e1-8a51-d7a2-fe59-9368fab1e464" params="'message':'COMPLETED SUCCESSFULLY. MY FORMS VIEW WILL REFLECT CHANGES WITH 5 MIN DELAY'" class=""></component-messagebox>
+	</div>	
+    <button class="normal-Button" style="background-color:#CCFFCC" data-bind="visible: _formReadOnly,click: _formButtonApproveClick">
+		<span class="normal-Button-Text">Approve</span>
+	</button>	
+	<span style="padding-right: 5px;"></span>
+    <button class="normal-Button" style="background-color:#FFCCCC;" data-bind="visible: _formReadOnly,click: _formButtonRejectClick">
+		<span class="normal-Button-Text">Reject</span>
+	</button>	
+	<span style="padding-right: 175px;"></span>
+    <button class="normal-Button" data-bind="click: _formButtonCloseClick">
+		<span class="normal-Button-Text">Close</span>
+	</button>
+    <button class="normal-Button" data-bind="click: _formLoadClick">
+		<span class="normal-Button-Text">Load</span>
+	</button>	
+	<div style="padding-bottom: 26px;"></div>
+	 
 </div>
