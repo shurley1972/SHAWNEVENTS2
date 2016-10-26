@@ -39,7 +39,7 @@ define([ 'text!master.css','text!./viewmodel.html'], function( css,htmlString) {
 		if(self.mwp_SpeakerName()== null){self.mwp_SpeakerName('');}	
 		if(self.mwp_DescribeOther()== null){self.mwp_DescribeOther('');}
 		if(self.mwp_OtherValue()== null){self.mwp_OtherValue('');}	
-		if(self.mwp_ApprovalWorkflow()== null){self.mwp_ApprovalWorkflow('');}			
+		if(self.mwp_ApprovalWorkflow()== null){alert('a');}			
 		})		
 		
 		//Gets current logged in user.  
