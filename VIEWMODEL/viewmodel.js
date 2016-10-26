@@ -38,8 +38,7 @@ define([ 'text!master.css','text!./viewmodel.html'], function( css,htmlString) {
 		if(self.mwp_Topic()== null){self.mwp_Topic('');}
 		if(self.mwp_SpeakerName()== null){self.mwp_SpeakerName('');}	
 		if(self.mwp_DescribeOther()== null){self.mwp_DescribeOther('');}
-		if(self.mwp_OtherValue()== null){self.mwp_OtherValue('');}	
-		if(self.mwp_ReviewerComments()== null){self.mwp_ReviewerComments('');}			
+		if(self.mwp_OtherValue()== null){self.mwp_OtherValue('');}			
 		})		
 		
 		//Gets current logged in user.  
