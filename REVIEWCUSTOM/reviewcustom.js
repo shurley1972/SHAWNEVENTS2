@@ -51,36 +51,22 @@ define(['text!reviewcustom.html'], function( htmlString) {
 		
 		// Sets reviewer outcome Approve/Reject field
 		this.WorkflowSteps = this.$column("mwp_ApprovalWorkflow");	
-		this.FormState = this.$column("mwp_FormState");	
-		
-		this.FormState.subscribe(function(newValue) {  
-			alert('I am Form State');
-			debugger;
-
-		},this);
-		
 
 		//this.SetOneDayEventDefault = ko.computed(function(){if(this.WorkflowSteps != undefined){alert(this.WorkflowSteps())}}, this);		
-		
-		this.WorkflowSteps.subscribe(function(newValue) {  
-			alert('One');
-			debugger;
+		if(this.WorkflowSteps== null){alert('dddddddddd');}
+		this.WorkflowSteps.subscribe(function(newValue) {     
 			var workflowStep = $.parseJSON(newValue)
 			if (workflowStep == undefined) workflowStep = []
-						debugger;
 			for (var i=0; i<workflowStep.length; i++)
 			{
 				if (workflowStep[i].ID == this.ID)
 				{
-							alert('two');
 					//alert('Step has already been added.  Do Nothing');
 					return;
 					//workflowStep[i].ReviewerOutcome = "Approved";
 					//workflowStep[i].ReviewerComments = this.commentsValue();
 				}
 			}
-						debugger;
-						alert('three');
 			var newWorkflowStep = {}
 			newWorkflowStep.ID = this.ID
 			newWorkflowStep.NextID = this.NextID
@@ -92,13 +78,12 @@ define(['text!reviewcustom.html'], function( htmlString) {
 			newWorkflowStep.ReviewerOutcome = ""
 			newWorkflowStep.ReviewerComments = ""		
 			debugger;
-									alert('four');
 			workflowStep.push(newWorkflowStep)
 			
 			var workflowStepStr = JSON.stringify(workflowStep)
 			alert(workflowStepStr);
 			this.WorkflowSteps(workflowStepStr);
-									alert('five');
+						alert('SAVED!!2')
 			//this.$form._formSave();
 
 
