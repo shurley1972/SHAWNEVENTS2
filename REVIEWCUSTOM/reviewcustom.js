@@ -54,7 +54,8 @@ define(['text!reviewcustom.html'], function( htmlString) {
 
 		//this.SetOneDayEventDefault = ko.computed(function(){if(this.WorkflowSteps != undefined){alert(this.WorkflowSteps())}}, this);		
 		
-		this.WorkflowSteps.subscribe(function(newValue) {     
+		this.WorkflowSteps.subscribe(function(newValue) {  
+			alert('I changed');
 			var workflowStep = $.parseJSON(newValue)
 			if (workflowStep == undefined) workflowStep = []
 			for (var i=0; i<workflowStep.length; i++)
