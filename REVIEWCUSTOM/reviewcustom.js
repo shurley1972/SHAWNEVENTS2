@@ -51,6 +51,14 @@ define(['text!reviewcustom.html'], function( htmlString) {
 		
 		// Sets reviewer outcome Approve/Reject field
 		this.WorkflowSteps = this.$column("mwp_ApprovalWorkflow");	
+		this.FormState = this.$column("mwp_FormState");	
+		
+		this.FormState.subscribe(function(newValue) {  
+			alert('I am Form State');
+			debugger;
+
+		},this);
+		
 
 		//this.SetOneDayEventDefault = ko.computed(function(){if(this.WorkflowSteps != undefined){alert(this.WorkflowSteps())}}, this);		
 		
