@@ -8,53 +8,23 @@ define(['text!reviewcustom.html'], function( htmlString) {
 	 * COMPONENT MODEL CONSTRUCTOR
 	 */
 	function reviewcustom( params) { 
-		//this.internalName = (params) ? params.InternalName : '';
-		//this.reviewerOutcome = (params) ? params.ReviewerOutcome : '';	
-
+	
+		// Get parameters used in Approval workflow.
 		this.ID = (params) ? params.ID : '';
 		this.NextID = (params) ? params.NextID : '';
 		this.StepName = (params) ? params.StepName : '';	
 		this.ApproverType = (params) ? params.ApproverType : '';
 		this.ApproverAccountID = (params) ? params.ApproverAccountID : '';		
 		this.FirstStep = (params) ? params.FirstStep : '';		
-		/**
-		 * TITLE
-		 * observable bound to component's html UI template to show Sharepoint column's 'Title'
-		 * Title value passed via params of component's html notation on calling form's (viewmodel) html template
-		 * Title parameter additionally declared at component's metadata (schema), enabling dynamic param's value update on 
-		 * form's (viewmodel) html temlate from Sharepo
-		 int source on design mode.
-		 */
-		//this.title = ko.observable((params) ? params.Title : '');
-		/**
-		 * DESCRIPTION	
-		 * observable bound to UI html template to show sharepoint column's 'Description' 
-		 * Description value passed via params of component's html notation on calling form's (viewmodel) html template
-		 * Description parameter additionally declared at component's metadata (schema), enabling dynamic param's value update on 
-		 * form's (viewmodel) html temlate from Sharepoint source on design mode.
-		 */
-		//this.labelName = ko.observable((params) ? params.LabelName : '');		
-		/**
-		 * VALUE	
-		 * observable bound to UI html template to show sharepoint column's 'Value' 
-		 */
-		// Sets reviewer comments field
-		//this.value = this.$column(this.internalName);
+
+		//Form comments textbox for reviewer input.
 		this.commentsValue = ko.observable("");
-		//debugger;
 		// Display form if user has design permissions.  Need check from Nikolay for permissions.
-		this._formEnabled = ko.computed(function(){return true})	
-		//var approvalOutcome = ""
-		
-		// Sets reviewer outcome Approve/Reject field
-		//this.ReviewerOutcome = this.$column(this.reviewerOutcome);
-		//this.ReviewerOutcome = ko.observable();		
-		
-		// Sets reviewer outcome Approve/Reject field
+		this._formEnabled = ko.computed(function(){return true})			
+		// Internal column name for workflow processing.
 		this.WorkflowSteps = this.$column("mwp_ApprovalWorkflow");	
 
-		
-		//this.SetOneDayEventDefault = ko.computed(function(){if(this.WorkflowSteps != undefined){alert(this.WorkflowSteps())}}, this);		
+		//Sets WorkflowSteps initial parameters needed for workflow processing.  
 		if (this.WorkflowSteps() == "")
 		{
 			var workflowStep = []
@@ -77,6 +47,7 @@ define(['text!reviewcustom.html'], function( htmlString) {
 
 		}
 
+		//Sets WorkflowSteps initial parameters needed for workflow processing.
 		this.WorkflowSteps.subscribe(function(newValue) {  
 			var workflowStep = $.parseJSON(newValue)
 			if (workflowStep == undefined) workflowStep = []
@@ -100,18 +71,14 @@ define(['text!reviewcustom.html'], function( htmlString) {
 			newWorkflowStep.ReviewerOutcome = ""
 			newWorkflowStep.ReviewerComments = ""		
 			workflowStep.push(newWorkflowStep)
-			
 			var workflowStepStr = JSON.stringify(workflowStep)
-			//alert(workflowStepStr);
 			this.WorkflowSteps(workflowStepStr);
 		},this);
 
 		// Hides Approve/Reject if ReviewerOutcome has a value.  Workflow will reset the field.
 		this._formReadOnly = ko.observable(true)
+		//Used for Status field and section heading
 		this.stepName = ko.observable((params) ? params.StepName : '');
-		
-		// Sets reviewer comments field to read-only if ReviewerOutcome has a value.  
-		//this.enableValue = ko.computed(function(){if(this.ReviewerOutcome() == "" || this.ReviewerOutcome() == undefined){return true}else{return true}}, this); 		
 	
 		// -- ENABLE VALUE EDIT MODE
 		// observable bound to UI html template to enable sharepoint column's 'Value'editing
@@ -148,12 +115,7 @@ ReviewerComments:	*Internal populated by system. Reviewer comments.
 			"FirstStep": "true"			
 		}
 	};
-	
-		self._formLoadClick = function() {
-
-			this.$form._formSave();
-			alert('DDDOONNEE')
-		};		
+			
 		self._formButtonApproveClick = function() {
 			var workflowStep = $.parseJSON(this.WorkflowSteps())
 			for (var i=0; i<workflowStep.length; i++)
