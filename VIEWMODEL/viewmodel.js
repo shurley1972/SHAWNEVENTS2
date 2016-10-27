@@ -12,6 +12,11 @@ define([ 'text!master.css','text!./viewmodel.html'], function( css,htmlString) {
 		self.mwp_OneDayEvent = ko.observable();		
 		self.mwp_EventStartDate = ko.observable();		
 		self.mwp_EventEndDate = ko.observable();				
+
+		self.SetTitleEvent = ko.computed(function(){if(self.mwp_EventTitle()!= null){self.Title(self.mwp_EventTitle() + ' in ' + self.mwp_EventCity() + ', ' + self.mwp_EventState());}})
+		self.SetTitleCity = ko.computed(function(){if(self.mwp_EventCity()!= null){self.Title(self.mwp_EventTitle() + ' in ' + self.mwp_EventCity() + ', ' + self.mwp_EventState());}})
+		self.SetTitleState = ko.computed(function(){if(self.mwp_EventState()!=undefined && self.mwp_EventState()!= ""){self.Title(self.mwp_EventTitle() + ' in ' + self.mwp_EventCity() + ', ' + self.mwp_EventState());}})
+
 		
 		self.mwp_OneDayEventShow = ko.computed(function(){if(self.mwp_OneDayEvent() == "Yes"){return "none"}else{return "table-Cell"}}, self); 		
 		self.SetOneDayEventDefault = ko.computed(function(){if(self.mwp_OneDayEvent() == ""){self.mwp_OneDayEvent('Yes')}}, self);
